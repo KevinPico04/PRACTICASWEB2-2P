@@ -1,0 +1,33 @@
+{
+  "name": "p2-apwii",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsnd --respawn --clear src/index.ts",
+    "build": "rimraf ./dist && tsc",
+    "start": "npm run build && node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/got": "^9.6.12",
+    "@types/node": "^20.14.2",
+    "@types/prompt-sync": "^4.2.3",
+    "prisma": "^5.15.0",
+    "rimraf": "^5.0.7",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.13.0",
+    "axios": "^1.7.2",
+    "express": "^4.19.2",
+    "got": "^14.4.1",
+    "ky": "^1.3.0",
+    "prompt-sync": "^4.2.0"
+  }
+}
