@@ -1,0 +1,89 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Idioma {
+  id: ID!
+  descripcion: String!
+  controlDeIdiomas: [ControlDeIdioma!]
+  estado: String!
+}
+
+type ControlDeIdioma {
+  id: ID!
+  estudiante: Estudiante!
+  estudianteId: ID!
+  idioma: Idioma!
+  idiomaId: ID!
+  porcentajeLectura: Float!
+  porcentajeEscritura: Float!
+  porcentajeEscuchar_hablar: Float!
+  estado: String!
+}
+
+type Estudiante {
+  id: ID!
+  nombre: String!
+  identificacion: String!
+  controlDeIdiomas: [ControlDeIdioma!]
+  estado: String!
+}
+
+type Query {
+  estudiantes: [Estudiante!]!
+  estudiante(id: Float!): Estudiante!
+  idiomas: [Idioma!]!
+  idioma(id: Float!): Idioma!
+  controlDeIdiomas: [ControlDeIdioma!]!
+  controlDeIdioma(id: Float!): ControlDeIdioma!
+}
+
+type Mutation {
+  createEstudiante(createEstudianteDto: CreateEstudianteDto!): Estudiante!
+  updateEstudiante(id: Float!, updateEstudianteDto: UpdateEstudianteDto!): Estudiante!
+  removeEstudiante(id: Float!): Estudiante!
+  createIdioma(createIdiomaDto: CreateIdiomaDto!): Idioma!
+  updateIdioma(id: Float!, updateIdiomaDto: UpdateIdiomaDto!): Idioma!
+  removeIdioma(id: Float!): Idioma!
+  createControlDeIdioma(createControlDeIdiomaDto: CreateControlDeIdiomaDto!): ControlDeIdioma!
+  updateControlDeIdioma(id: Float!, updateControlDeIdiomaDto: UpdateControlDeIdiomaDto!): ControlDeIdioma!
+  removeControlDeIdioma(id: Float!): ControlDeIdioma!
+}
+
+input CreateEstudianteDto {
+  nombre: String!
+  identificacion: String!
+}
+
+input UpdateEstudianteDto {
+  nombre: String
+  identificacion: String
+}
+
+input CreateIdiomaDto {
+  descripcion: String!
+  estado: String = "ACTIVO"
+}
+
+input UpdateIdiomaDto {
+  descripcion: String
+  estado: String = "ACTIVO"
+}
+
+input CreateControlDeIdiomaDto {
+  estudianteId: Int!
+  idiomaId: Int!
+  porcentajeLectura: Int!
+  porcentajeEscritura: Int!
+  porcentajeEscuchar_hablar: Int!
+  estado: String = "ACTIVO"
+}
+
+input UpdateControlDeIdiomaDto {
+  estudianteId: Int
+  idiomaId: Int
+  porcentajeLectura: Int
+  porcentajeEscritura: Int
+  porcentajeEscuchar_hablar: Int
+  estado: String = "ACTIVO"
+}
